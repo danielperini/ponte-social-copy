@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "@/i18n/LanguageProvider";
 import { LANGUAGES } from "@/i18n/translations";
 
 const MAIN_DOMAIN = "https://www.pontesocialconsultoria.com.br";
 const OG_LOCALE = { "pt-BR": "pt_BR", en: "en_US", es: "es_419" };
-const DEFAULT_OG_IMAGE = "https://media.base44.com/images/public/6aa331bf5cf4993602fef0a7/5410ea027_WhatsAppImage2026-09-11at092845.jpeg";
+const DEFAULT_OG_IMAGE = "/images/5410ea027_WhatsAppImage2026-09-11at092845.jpeg";
 
 function upsertMeta(attr, key, content) {
   if (!content) return;
@@ -42,7 +42,7 @@ function upsertJsonLd(id, data) {
 
 export default function Seo({ title, description, keywords, image }) {
   const { lang } = useTranslation();
-  const ogImage = image || DEFAULT_OG_IMAGE;
+  const ogImage = new URL(image || DEFAULT_OG_IMAGE, import.meta.env.VITE_SITE_ORIGIN).href;
   const canonicalPath = window.location.pathname || "/";
   const canonical = `${MAIN_DOMAIN}${canonicalPath}`;
 

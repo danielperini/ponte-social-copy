@@ -15,6 +15,7 @@ import { ThemeProvider } from '@/i18n/ThemeProvider';
 
 const ArticleDetail = lazy(() => import('@/pages/ArticleDetail'));
 const AccountDeletion = lazy(() => import('@/pages/AccountDeletion'));
+const GoogleLogin = lazy(() => import('@/pages/GoogleLogin'));
 
 const pageTransition = {
   initial: { opacity: 0 },
@@ -37,6 +38,7 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           {/* Add your page Route elements here */}
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Suspense fallback={<RouteFallback />}><GoogleLogin /></Suspense>} />
           <Route path="/artigos/:slug" element={<Suspense fallback={<RouteFallback />}><ArticleDetail /></Suspense>} />
           <Route path="/conta/excluir" element={<Suspense fallback={<RouteFallback />}><AccountDeletion /></Suspense>} />
           <Route path="*" element={<PageNotFound />} />

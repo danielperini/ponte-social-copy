@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ShieldAlert, Loader2, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ShieldAlert, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/ponte/Navbar";
 import Footer from "@/components/ponte/Footer";
 import Seo from "@/components/ponte/Seo";
 import { useToast } from "@/components/ui/use-toast";
-import { base44 } from "@/api/base44Client";
+import { DELETION_EMAIL, deletionMailto } from "@/lib/deletion-mailto";
 import { useTranslation } from "@/i18n/LanguageProvider";
 import {
   AlertDialog,
@@ -24,30 +24,23 @@ export default function AccountDeletion() {
   const { toast } = useToast();
   const [confirmed, setConfirmed] = useState(false);
   const [email, setEmail] = useState("");
-  const [sending, setSending] = useState(false);
+  const [mailHref, setMailHref] = useState("");
   const [done, setDone] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
 
   const consequences = t("accountDeletion.consequences");
 
-  // Base44 exposes no SDK/backend endpoint for programmatic account deletion
-  // (deletion is performed manually by the team via the workspace dashboard),
-  // so the request is routed to the Ponte Social team by email.
-  const doDelete = async () => {
+  // A solicitação é analisada manualmente; este fluxo nunca apaga dados.
+  const doDelete = () => {
     setConfirmOpen(false);
-    setSending(true);
     try {
-      await base44.integrations.Core.SendEmail({
-        to: "comercial@pontesocialconsultoria.com.br",
-        subject: "Solicitação de exclusão de conta/dados — Ponte Social",
-        body: `Solicitação de exclusão de conta e dados\nE-mail identificado: ${email}\n\nO usuário confirmou compreender as consequências e solicita a exclusão permanente.`,
-      });
+      if (!confirmed) return;
+      const href = deletionMailto(email, t("accountDeletion.emailSubject"), t("accountDeletion.emailBody"));
+      setMailHref(href);
       setDone(true);
-      toast({ title: t("accountDeletion.toastSuccess") });
+      window.location.href = href;
     } catch {
-      toast({ title: t("accountDeletion.toastError") });
-    } finally {
-      setSending(false);
+      toast({ title: t("accountDeletion.toastRequired") });
     }
   };
 
@@ -107,6 +100,8 @@ export default function AccountDeletion() {
               <div>
                 <p className="font-display text-lg text-foreground">{t("accountDeletion.doneTitle")}</p>
                 <p className="text-foreground/70 text-sm mt-1 leading-relaxed">{t("accountDeletion.doneText")}</p>
+                <a href={mailHref} className="inline-flex min-h-[44px] items-center mt-3 text-accent underline">{t("accountDeletion.openEmail")}</a>
+                <p className="text-sm mt-2 break-all">{t("accountDeletion.emailFallback")} <a href={`mailto:${DELETION_EMAIL}`} className="underline">{DELETION_EMAIL}</a></p>
               </div>
             </motion.div>
           ) : (
@@ -117,6 +112,8 @@ export default function AccountDeletion() {
                 </span>
                 <input
                   type="email"
+                  required
+                  maxLength={254}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="min-h-[44px] w-full bg-transparent border-b border-foreground/25 py-2 text-foreground placeholder:text-foreground/35 focus:border-accent outline-none"
@@ -136,11 +133,10 @@ export default function AccountDeletion() {
 
               <button
                 type="submit"
-                disabled={sending || !confirmed || !email}
+                disabled={!confirmed || !email}
                 className="min-h-[44px] inline-flex items-center gap-2 rounded-full bg-secondary px-7 py-3 text-sm font-semibold tracking-[0.12em] uppercase text-foreground hover:bg-accent hover:text-accent-foreground transition-colors disabled:opacity-50"
               >
-                {sending ? <Loader2 size={16} className="animate-spin" /> : null}
-                {sending ? t("accountDeletion.sending") : t("accountDeletion.submit")}
+                {t("accountDeletion.submit")}
               </button>
             </form>
           )}

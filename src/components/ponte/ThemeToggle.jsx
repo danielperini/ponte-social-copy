@@ -1,11 +1,10 @@
 import React from "react";
-import { Sun, Moon, Monitor } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import { useTheme } from "@/i18n/ThemeProvider";
 
 const OPTIONS = [
   { value: "light", Icon: Sun, label: "Light" },
   { value: "dark", Icon: Moon, label: "Dark" },
-  { value: "system", Icon: Monitor, label: "System" },
 ];
 
 export default function ThemeToggle({ scrolled = false, compact = false, className = "" }) {

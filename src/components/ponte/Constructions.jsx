@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { base44 } from "@/api/base44Client";
+import { site } from "@/api/siteClient";
 import { useTranslation } from "@/i18n/LanguageProvider";
 
 const fade = (delay) => ({
@@ -42,11 +42,7 @@ export default function Constructions() {
     }
     setSending(true);
     try {
-      await base44.integrations.Core.SendEmail({
-        to: "comercial@pontesocialconsultoria.com.br",
-        subject: "Contato — Ponte Social",
-        body: `Nome: ${form.name}\nE-mail: ${form.email}\nEmpresa: ${form.company}\n\n${form.message}`,
-      });
+      await site.requestContact(form);
       toast({ title: t("constructions.toastSuccess") });
       setForm({ name: "", email: "", company: "", message: "" });
     } catch {
