@@ -7,9 +7,7 @@ com site público sem login obrigatório e independente do Base44, exceto os lin
 Scambio. Também escolheu explicitamente abrir o aplicativo de e-mail do visitante
 para pedidos em `/conta/excluir`, sem SMTP/envio automático.
 
-**DNS atualizado; HTTPS do domínio definitivo ainda pendente de ativação/validação
-na Hostinger. A migração não deve ser declarada concluída enquanto essa verificação
-não passar.**
+**Migração pública validada em 23/09/2026: DNS na Hostinger e HTTPS válido nos dois hosts, sem login obrigatório.**
 
 ## Alterações finais
 
@@ -57,12 +55,34 @@ em `zmail._domainkey`. Não foram alterados contatos, titularidade ou provedor d
 - No endereço temporário real: páginas abrem sem senha, confirmação do pedido por e-mail
   renderiza em mobile, nenhuma chamada de envio ou Base44 é disparada na preparação.
 - No IP web real: HTTP do domínio raiz redireciona para a URL www correspondente.
-- O proxy de prévia da Hostinger reescreve URLs do domínio no HTML servido pelo endereço
-  temporário. Por isso as URLs finais de SEO devem ser validadas no domínio definitivo,
-  quando HTTPS estiver disponível; o build contém a origem final correta.
-- TLS direto para raiz/www ainda retornou erro de handshake (`EPROTO` / alerta TLS 80)
-  após a mudança DNS. É necessário ativar/aguardar o SSL gratuito no hPanel e testar os
-  dois hosts, redirects, assets, API e URLs profundas no endereço definitivo.
+- Após ativação do SSL, HTTPS sem ignorar certificados confirmou raiz → www com 301
+  e www com 200, inclusive na rota de exclusão. Home, login e exclusão responderam.
+- Metadados finais usam a origem correta; produção não possui noindex de homologação.
+  Sessão pública indica Google desativado; me anônimo retorna 401 e caminhos privados
+  ou API inexistente retornam 403/404.
+- Edge headless mobile confirmou home, artigo por URL direta e exclusão, sem erros JS
+  nem chamadas Base44. Exclusão sem overflow. Um seletor inicial de artigos na home
+  expirou: a home original não inclui Articles. O teste corrigido acessou a rota diretamente.
+- DNS público confirmou ambos os A e MX/SPF/verificação/DKIM Zoho preservados.
+  Nenhum envio real ou teste de entrega de e-mail foi realizado.
+- GitHub Actions aprovou o código 9084014: https://github.com/danielperini/ponte-social-copy/actions/runs/35907895601
+
+## Dependências Base44 verificadas no site publicado
+
+- package.json e lock sem SDK/plugin Base44; Vite usa plugin React e alias local.
+- JavaScript e CSS baixados do domínio final possuem somente duas referências Base44:
+  links externos https://scambioia.base44.app, preservados por decisão do proprietário.
+- Nenhum SDK, media.base44.com, token Base44 ou endpoint /api/apps/ no bundle publicado.
+  As dez imagens migradas são locais. PHP atende a API da própria hospedagem.
+- OAuthConsent.jsx preserva chamadas MCP antigas no código-fonte, mas a tela não tem
+  rota e mcpEnabled é falso; essas chamadas não estão no bundle publicado. Não é um
+  fluxo migrado ou habilitado. Telas legadas de cadastro/OTP/recuperação permanecem
+  preservadas e indisponíveis, sem fallback ao Base44.
+- Arquivos base44/, relatórios históricos, manifesto de imagens e script de migração
+  retêm referências de origem no repositório; não são dependências do site instalado.
+- A integração externa Scambio continua dependente do serviço de destino ao clicar.
+  O Base44 original não foi desligado. OAuth definitivo segue desativado por opção;
+  SMTP não é necessário ao pedido manual via aplicativo de e-mail escolhido.
 
 ## Reprodução e rollback
 
