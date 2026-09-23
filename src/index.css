@@ -115,9 +115,10 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Clip horizontal overflow without trapping wheel scroll in a body scroll container. */
   html, body {
     overscroll-behavior: none;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   button {
@@ -129,7 +130,7 @@
     @apply bg-background text-foreground font-body antialiased;
     font-size: 18px;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {

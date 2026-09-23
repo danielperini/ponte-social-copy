@@ -108,3 +108,15 @@ registros Zoho. Rollback de arquivos: após validar caminhos, preservar a versã
 privadamente e restaurar public_html/config.php do backup correspondente. O backup
 anterior é a homologação protegida; ele não substitui o retorno DNS à produção anterior.
 O Base44 não foi desligado e o repositório original não foi modificado.
+
+## Correção de rolagem — 23/09/2026
+
+Relato do proprietário reproduzido no domínio publicado: rodinha deixava scrollY em
+zero nas larguras 1440 e 900. overflow-x:hidden em html/body criava um contêiner de
+rolagem no body; com overscroll-behavior:none a rolagem não chegava ao documento.
+Alterado para overflow-x:clip, mantendo corte horizontal sem esse contêiner.
+Build e check:migration passaram. Após instalar os assets e substituir index.html,
+Edge headless confirmou scrollY=900 com a rodinha nas duas larguras.
+Backup: $HOME/ponte-staging/backups/pre-wheel-fix-20260923/index.html.
+Assets anteriores foram mantidos; rollback consiste em restaurar esse index.html.
+Não houve alteração de DNS, configuração privada ou layout nesta correção.
