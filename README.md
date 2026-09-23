@@ -7,6 +7,10 @@ alterar DNS, habilitar auto deploy ou modificar a main sem uma tarefa autorizada
 Após autorização específica, foi instalada homologação protegida na Hostinger.
 Estado atual, testes e pendências: [docs/HOMOLOGATION_REPORT.md](docs/HOMOLOGATION_REPORT.md).
 
+Corte posteriormente autorizado para o domínio definitivo: consultar
+[docs/PRODUCTION_CUTOVER.md](docs/PRODUCTION_CUTOVER.md) para DNS, HTTPS, publicação
+pública e pedido de exclusão por aplicativo de e-mail.
+
 Leia `MIGRATION_AUDIT.md` (auditoria histórica), `docs/MIGRATION_STATUS.md`
 (implementação e limites atuais) e `docs/HOSTINGER_RUNBOOK.md` (passos futuros).
 

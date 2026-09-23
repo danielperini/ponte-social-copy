@@ -1,7 +1,14 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { deletionMailto, DELETION_EMAIL } from '../src/lib/deletion-mailto.js';
 const read = p => readFile(p, 'utf8');
+const draft = new URL(deletionMailto('teste+privacidade@example.invalid', 'Pedido & privacidade', 'E-mail: {email}\nAnálise manual.'));
+assert.equal(draft.protocol, 'mailto:');
+assert.equal(draft.pathname, DELETION_EMAIL);
+assert.equal(draft.searchParams.get('subject'), 'Pedido & privacidade');
+assert.equal(draft.searchParams.get('body'), 'E-mail: teste+privacidade@example.invalid\nAnálise manual.');
+assert.throws(() => deletionMailto('test@example.invalid\r\nBcc:other@example.invalid', 'Pedido', '{email}'));
 const manifest = JSON.parse(await read('docs/media-manifest.json'));
 assert.equal(manifest.length, 10);
 for (const asset of manifest) {
