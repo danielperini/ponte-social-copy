@@ -26,3 +26,20 @@ Open Graph e tag keywords única corretos, sem descrição inserida no corpo vis
 Não houve teste de indexação ou posicionamento. Publicado na Hostinger; backup do
 index em $HOME/ponte-staging/backups/pre-seo-meta-20260923/index.html e assets antigos
 preservados. Para rollback, restaurar esse index.
+
+## Complemento: H&P, mediação e projetos sociais/culturais
+
+Consultadas fontes primárias:
+- https://hep.solutions/sobre/ — identificação de H&P como Herkenhoff & Prates.
+- https://hep.solutions/formacao-para-a-equipe-de-dialogo-social-em-mariana-4/ — mediação e facilitação de grupos.
+- https://hep.solutions/solucoes/estudos-programas-ambientais/ — diálogo e estudos culturais; serviços específicos não atribuídos à Ponte.
+- https://zangucultural.com.br/ — vocabulário de projetos sociais/culturais, sem copiar serviços de incentivo fiscal.
+
+Acrescentados facilitação de diálogos, gestão de projetos sociais e projetos sociais
+e culturais às keywords localizadas. Descrições destacam mediação de conflitos e
+qualificam projetos culturais como atuação da rede de parceiros, conforme seção
+Partners (Perini Projetos, Malavi e demais parceiros). Sem alegar licenciamento,
+Lei Rouanet, captação ou estudos de patrimônio como serviços próprios não comprovados.
+Nome de concorrente não incluído nas tags. Layout e conteúdo visível preservados.
+Build e metadados publicados conferidos nos três idiomas. Backup de index:
+$HOME/ponte-staging/backups/pre-seo-cultural-20260923/index.html.

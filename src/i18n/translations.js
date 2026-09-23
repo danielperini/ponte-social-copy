@@ -460,8 +460,8 @@ export const translations = {
     },
     seo: {
       title: "Ponte Social | Consultoria social e gestão de stakeholders",
-      description: "Consultoria social para empresas: inteligência territorial, relacionamento com comunidades, gestão de stakeholders e riscos sociais em projetos e operações.",
-      keywords: "consultoria social, inteligência territorial, relacionamento com comunidades, gestão de stakeholders, mapeamento de stakeholders, gestão de riscos sociais, diálogo social, mediação de conflitos",
+      description: "Consultoria social em inteligência territorial, stakeholders e mediação de conflitos. Relacionamento comunitário e rede de parceiros em projetos sociais e culturais.",
+      keywords: "consultoria social, inteligência territorial, relacionamento com comunidades, gestão de stakeholders, mapeamento de stakeholders, gestão de riscos sociais, diálogo social, mediação de conflitos, facilitação de diálogos, gestão de projetos sociais, projetos sociais e culturais",
     },
     accountDeletion: {
       kicker: "Privacidade",
@@ -884,8 +884,8 @@ export const translations = {
     },
     seo: {
       title: "Ponte Social | Social consulting and stakeholder engagement",
-      description: "Social consulting for businesses: territorial intelligence, community relations, stakeholder engagement and social risk management for projects and operations.",
-      keywords: "social consulting, territorial intelligence, community relations, stakeholder engagement, stakeholder mapping, social risk management, social dialogue, conflict mediation",
+      description: "Social consulting in territorial intelligence, stakeholder engagement and conflict mediation. Community relations and a partner network in social and cultural projects.",
+      keywords: "social consulting, territorial intelligence, community relations, stakeholder engagement, stakeholder mapping, social risk management, social dialogue, conflict mediation, dialogue facilitation, social project management, social and cultural projects",
     },
     accountDeletion: {
       kicker: "Privacy",
@@ -1308,8 +1308,8 @@ export const translations = {
     },
     seo: {
       title: "Ponte Social | Consultoría social y gestión de stakeholders",
-      description: "Consultoría social para empresas: inteligencia territorial, relaciones comunitarias, gestión de stakeholders y riesgos sociales en proyectos y operaciones.",
-      keywords: "consultoría social, inteligencia territorial, relaciones comunitarias, gestión de stakeholders, mapeo de actores, gestión de riesgos sociales, diálogo social, mediación de conflictos",
+      description: "Consultoría social en inteligencia territorial, stakeholders y mediación de conflictos. Relaciones comunitarias y red de aliados en proyectos sociales y culturales.",
+      keywords: "consultoría social, inteligencia territorial, relaciones comunitarias, gestión de stakeholders, mapeo de actores, gestión de riesgos sociales, diálogo social, mediación de conflictos, facilitación del diálogo, gestión de proyectos sociales, proyectos sociales y culturales",
     },
     accountDeletion: {
       kicker: "Privacidad",
