@@ -120,3 +120,13 @@ Edge headless confirmou scrollY=900 com a rodinha nas duas larguras.
 Backup: $HOME/ponte-staging/backups/pre-wheel-fix-20260923/index.html.
 Assets anteriores foram mantidos; rollback consiste em restaurar esse index.html.
 Não houve alteração de DNS, configuração privada ou layout nesta correção.
+
+## Ajuste de toque Android — 23/09/2026
+
+Proprietário relata toque travado em Android inclusive em aba anônima. O problema não
+foi reproduzido em Edge com emulação móvel: gesto CDP já deslocava scrollY para 435.
+Como ajuste de compatibilidade, removida a supressão global de overscroll vertical e
+explicitamente permitidos pan-y e pinch-zoom em html/body. Build aprovado; alteração
+publicada com backup do index em pre-touch-scroll-20260923 (mesma pasta de backups).
+Validação física no aparelho afetado ainda depende do proprietário; não declarar
+resolução confirmada apenas pelo teste emulado.

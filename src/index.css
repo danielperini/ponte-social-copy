@@ -117,7 +117,8 @@
 
   /* Clip horizontal overflow without trapping wheel scroll in a body scroll container. */
   html, body {
-    overscroll-behavior: none;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y pinch-zoom;
     overflow-x: clip;
   }
 
