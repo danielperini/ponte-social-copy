@@ -51,6 +51,7 @@ export default function Seo({ title, description, keywords, image }) {
 
     upsertMeta("name", "description", description);
     if (keywords) upsertMeta("name", "keywords", keywords);
+    else document.querySelector('meta[name="keywords"]')?.remove();
     upsertMeta("name", "robots", "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1");
     upsertMeta("name", "googlebot", "index, follow");
 

@@ -459,8 +459,9 @@ export const translations = {
       pactoSealDesc: "Adesão aos dez princípios do Pacto Global da ONU.",
     },
     seo: {
-      title: "Ponte Social | Inteligência territorial, gestão de stakeholders e riscos sociais",
-      description: "A Ponte Social atua na dimensão social dos negócios para identificar riscos, compreender contextos e relações e apoiar decisões em diferentes momentos de projetos e operações.",
+      title: "Ponte Social | Consultoria social e gestão de stakeholders",
+      description: "Consultoria social para empresas: inteligência territorial, relacionamento com comunidades, gestão de stakeholders e riscos sociais em projetos e operações.",
+      keywords: "consultoria social, inteligência territorial, relacionamento com comunidades, gestão de stakeholders, mapeamento de stakeholders, gestão de riscos sociais, diálogo social, mediação de conflitos",
     },
     accountDeletion: {
       kicker: "Privacidade",
@@ -882,8 +883,9 @@ export const translations = {
       pactoSealDesc: "Commitment to the ten principles of the UN Global Compact.",
     },
     seo: {
-      title: "Ponte Social | Territorial intelligence, stakeholder management, and social risks",
-      description: "Ponte Social works with the social dimension of business to identify risks, understand contexts and relationships, and support decisions throughout different stages of projects and operations.",
+      title: "Ponte Social | Social consulting and stakeholder engagement",
+      description: "Social consulting for businesses: territorial intelligence, community relations, stakeholder engagement and social risk management for projects and operations.",
+      keywords: "social consulting, territorial intelligence, community relations, stakeholder engagement, stakeholder mapping, social risk management, social dialogue, conflict mediation",
     },
     accountDeletion: {
       kicker: "Privacy",
@@ -1305,8 +1307,9 @@ export const translations = {
       pactoSealDesc: "Adhesión a los diez principios del Pacto Global de la ONU.",
     },
     seo: {
-      title: "Ponte Social | Inteligencia territorial, gestión de stakeholders y riesgos sociales",
-      description: "Ponte Social trabaja en la dimensión social de los negocios para identificar riesgos, comprender contextos y relaciones, y respaldar decisiones en diferentes etapas de proyectos y operaciones.",
+      title: "Ponte Social | Consultoría social y gestión de stakeholders",
+      description: "Consultoría social para empresas: inteligencia territorial, relaciones comunitarias, gestión de stakeholders y riesgos sociales en proyectos y operaciones.",
+      keywords: "consultoría social, inteligencia territorial, relaciones comunitarias, gestión de stakeholders, mapeo de actores, gestión de riesgos sociales, diálogo social, mediación de conflictos",
     },
     accountDeletion: {
       kicker: "Privacidad",
