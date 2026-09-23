@@ -5,6 +5,25 @@ separada**, preservando DNS/produção, a main e o repositório original.
 
 Endereço: https://maroon-boar-726759.hostingersite.com/
 
+## Atualização: Google configurado
+
+Após a instalação inicial descrita abaixo, o proprietário criou um cliente OAuth Web
+no projeto separado `ponte-social-homologacao` e disponibilizou o JSON localmente.
+Projeto, tipo de cliente e callback foram validados. As credenciais foram transferidas
+por SSH diretamente para a configuração privada, com backup privado e substituição
+atômica; nenhum segredo foi incluído em código, Git ou frontend.
+
+Google está agora habilitado na homologação. Foram testados o bootstrap público com
+Google habilitado, redirecionamento HTTPS com client/callback corretos, state e PKCE,
+rejeição de callback inválido e ausência de sessão autenticada sem login real.
+**A entrada real e o logout com a conta autorizada ainda dependem do teste interativo
+do proprietário.** A inclusão da conta entre os usuários de teste no Google também
+precisa estar correta. SMTP permanece desativado por decisão do proprietário.
+
+As menções a Google desativado nas seções seguintes registram o estado da instalação
+inicial. Esta atualização não altera DNS, produção, proteção da homologação ou titularidade
+do projeto Google anteriormente existente.
+
 ## Instalação e isolamento
 
 - O painel informado pelo proprietário mostra **Business Web Hosting**. Via SSH foram
