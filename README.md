@@ -1,62 +1,40 @@
-# Base44 Project
+# Ponte Social — cópia independente em preparação
 
-Use this repository to run and edit the app locally, then publish changes back through Base44.
+Branch de trabalho: `migration/hostinger-premium`, somente no repositório
+`danielperini/ponte-social-copy`. Produção continua no Base44. Não fazer deploy,
+alterar DNS, habilitar auto deploy ou modificar a main sem uma tarefa autorizada.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+Leia `MIGRATION_AUDIT.md` (auditoria histórica), `docs/MIGRATION_STATUS.md`
+(implementação e limites atuais) e `docs/HOSTINGER_RUNBOOK.md` (passos futuros).
 
-## Prerequisites
+## Build local
 
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
-5. Install [Deno](https://docs.deno.com/runtime/getting_started/installation/) — the local Base44 backend runs on it.
+Node da `.nvmrc` (24.19.0), npm e PHP 8.2+ com Composer:
 
-Run `base44 --help` (or see the [CLI reference](https://docs.base44.com/developers/references/cli/commands/introduction)) for the full command surface.
-
-## Run Locally
-
-Three commands, from the project root:
-
-```bash
-base44 login   # one-time per machine
-base44 link    # one-time per clone
-base44 dev     # local backend + frontend together
+```sh
+npm ci --no-audit --no-fund
+composer install --working-dir=server --no-dev --prefer-dist --classmap-authoritative
+# Variável pública, sem barra final; nunca colocar credenciais VITE_*:
+export VITE_SITE_ORIGIN=https://SEU-DOMINIO-TEMPORARIO
+npm run build
+npm run check:migration
+node scripts/test-endpoints.mjs
+npm run package:hostinger
 ```
 
-Open the frontend URL that `base44 dev` prints (typically `http://localhost:5173`).
+No PowerShell, definir a variável com `$env:VITE_SITE_ORIGIN='https://...'`.
+`PHP_BINARY` pode indicar o executável PHP fora do PATH. O teste cria ambiente
+local temporário e não envia e-mails nem autentica em serviços reais.
 
-Notes:
+`release/` deve não existir antes do empacotamento. O pacote contém apenas
+`public_html/`, `private/`, instruções e checksums, sem config privada. Não copiar
+o repositório para public_html. O workflow somente produz artefatos; a instalação
+é manual e está fora desta tarefa. `.htaccess` inclui noindex de homologação.
 
-- **Every fresh clone needs `base44 link`.** It writes `base44/.app.jsonc` (the app-id pointer), which is deliberately gitignored. Your app id is in the Builder URL (`app.base44.com/apps/<id>/...`); `base44 link --help` shows the non-interactive flags.
-- **`base44 dev` runs the frontend for you** (via `site.serveCommand` in this repo's `base44/config.jsonc`) — never run `npm run dev` yourself: alone it serves a UI with no backend behind it (`[base44] Proxy not enabled`, every `/api` call fails), and alongside `base44 dev` the second Vite silently takes the next port and you end up looking at the wrong one.
-- **The app must be published at least once for the UI to load under `base44 dev`.** The frontend boots by fetching app settings from the hosted app; before the first publish that fails and every page redirects to login. The local API works regardless.
-- Entities, functions, and auth run locally — entity data is **in-memory only**, wiped when `base44 dev` restarts. Everything else (Core integrations, OAuth login) is forwarded to your deployed app. Full breakdown: [Local development overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview).
+`npm run dev` serve o frontend; `/api` é encaminhada a localhost:8080, que precisa
+servir o PHP numa estrutura com private fora do document root. Sem API, a navegação
+pública continua disponível, mas conta/e-mail não simulam sucesso.
 
-## Frontend Only, Hosted Backend
-
-To work on just the frontend against your app's live hosted backend:
-
-```bash
-base44 dev --remote
-```
-
-⚠️ In this mode writes go to your app's **production data** — plain `base44 dev` keeps everything local.
-
-## Publish Your Changes
-
-After pushing your changes to git, open the Base44 dashboard and publish the app:
-
-```bash
-base44 dashboard open
-```
-
-This repo syncs to Base44 through git, so publish from the dashboard rather than `base44 deploy` — a CLI deploy ships your local tree directly, bypassing the sync, and the deployed state silently diverges from the repo.
-
-## Docs & Support
-
-GitHub integration: [https://docs.base44.com/developers/app-code/local-development/github](https://docs.base44.com/developers/app-code/local-development/github)
-
-Local development: [https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+Os dez binários originais estão em public/images, com inventário SHA-256 em
+`docs/media-manifest.json`. `scripts/migrate-assets.mjs` registra a importação
+única e não deve ser executado novamente sobre referências já migradas.

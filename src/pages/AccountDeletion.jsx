@@ -6,7 +6,7 @@ import Navbar from "@/components/ponte/Navbar";
 import Footer from "@/components/ponte/Footer";
 import Seo from "@/components/ponte/Seo";
 import { useToast } from "@/components/ui/use-toast";
-import { base44 } from "@/api/base44Client";
+import { site } from "@/api/siteClient";
 import { useTranslation } from "@/i18n/LanguageProvider";
 import {
   AlertDialog,
@@ -30,18 +30,12 @@ export default function AccountDeletion() {
 
   const consequences = t("accountDeletion.consequences");
 
-  // Base44 exposes no SDK/backend endpoint for programmatic account deletion
-  // (deletion is performed manually by the team via the workspace dashboard),
-  // so the request is routed to the Ponte Social team by email.
+  // A solicitação é analisada manualmente; este fluxo nunca apaga dados.
   const doDelete = async () => {
     setConfirmOpen(false);
     setSending(true);
     try {
-      await base44.integrations.Core.SendEmail({
-        to: "comercial@pontesocialconsultoria.com.br",
-        subject: "Solicitação de exclusão de conta/dados — Ponte Social",
-        body: `Solicitação de exclusão de conta e dados\nE-mail identificado: ${email}\n\nO usuário confirmou compreender as consequências e solicita a exclusão permanente.`,
-      });
+      await site.requestDeletion({ email, confirmed });
       setDone(true);
       toast({ title: t("accountDeletion.toastSuccess") });
     } catch {

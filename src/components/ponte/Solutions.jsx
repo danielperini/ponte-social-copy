@@ -49,7 +49,7 @@ export default function Solutions() {
           <div className="lg:col-span-4">
             <a href="https://scambioia.base44.app" target="_blank" rel="noopener noreferrer" className="block">
               <img
-                src="https://media.base44.com/images/public/6aa331bf5cf4993602fef0a7/9aea63e71_ChatGPTImage14desetde202617_28_23.png"
+                src="/images/9aea63e71_ChatGPTImage14desetde202617_28_23.png"
                 alt={soc.name}
                 className="h-auto max-w-full lg:h-[205px] w-auto object-contain transition-opacity hover:opacity-80"
               />

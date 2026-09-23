@@ -1,0 +1,5 @@
+{
+  "name": "ponte-social/hostinger-api",
+  "require": { "php": "^8.2", "ext-curl": "*", "ext-openssl": "*", "phpmailer/phpmailer": "^7.0" },
+  "config": { "sort-packages": true, "platform": { "php": "8.2.0" } }
+}

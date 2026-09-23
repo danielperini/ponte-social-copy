@@ -6,17 +6,17 @@ import { useTranslation } from "@/i18n/LanguageProvider";
 const PARTNERS = [
   {
     name: "Instituto Frazoli",
-    url: "https://media.base44.com/images/public/6aa331bf5cf4993602fef0a7/4f8c4d777_WhatsAppImage2026-09-11at130739FlatLay.png",
+    url: "/images/4f8c4d777_WhatsAppImage2026-09-11at130739FlatLay.png",
     removeWhite: false,
   },
   {
     name: "ima",
-    url: "https://media.base44.com/images/public/6aa331bf5cf4993602fef0a7/bb5f51af4_FlatLay-10fa5f03-5e32-44c4-b936-2ce393e6afec.jpg",
+    url: "/images/bb5f51af4_FlatLay-10fa5f03-5e32-44c4-b936-2ce393e6afec.jpg",
     removeWhite: true,
   },
   {
     name: "Perini",
-    url: "https://media.base44.com/images/public/6aa331bf5cf4993602fef0a7/5a2405ae1_perini_transparente2.png",
+    url: "/images/5a2405ae1_perini_transparente2.png",
     removeWhite: false,
     heightClass: "h-[76px] lg:h-[102px]",
   },

@@ -24,7 +24,7 @@ export default function OAuthConsent() {
     (async () => {
       let redirecting = false;
       try {
-        if (!ctx) {
+        if (!appParams.mcpEnabled || !ctx) {
           setError("This authorization link is invalid or has expired.");
           return;
         }
