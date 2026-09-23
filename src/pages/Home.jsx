@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <div className="bg-background">
-      <Seo title={t("seo.title")} description={t("seo.description")} keywords={t("seo.keywords")} />
+      <Seo title={t("seo.title")} description={t("seo.description")} keywords={t("seo.keywords")} socialTitle={t("seo.socialTitle")} socialDescription={t("seo.socialDescription")} />
       <PullToRefreshIndicator pull={pull} refreshing={refreshing} />
       <Navbar />
       <main>

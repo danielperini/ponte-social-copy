@@ -43,3 +43,14 @@ Lei Rouanet, captação ou estudos de patrimônio como serviços próprios não 
 Nome de concorrente não incluído nas tags. Layout e conteúdo visível preservados.
 Build e metadados publicados conferidos nos três idiomas. Backup de index:
 $HOME/ponte-staging/backups/pre-seo-cultural-20260923/index.html.
+
+## Texto proposto pelo proprietário
+
+Aplicada a proposta de título/descrição e Open Graph enviada em 23/09/2026,
+com traduções en/es. Título de busca: Ponte Social | Relacionamento com Comunidades
+e Stakeholders. OG/Twitter usam texto próprio sobre construção de relações entre
+empresas e comunidades. Artigos conservam seus próprios títulos e descrições.
+Sem criação de páginas, FAQ, headings, conteúdo oculto ou mudança de layout.
+A lista extensa de caudas média/longa não foi inserida integralmente nas tags.
+Build aprovado; valores conferidos no domínio real em três idiomas e artigo.
+Backup: $HOME/ponte-staging/backups/pre-seo-approved-20260923/index.html.

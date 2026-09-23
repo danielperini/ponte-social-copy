@@ -40,7 +40,7 @@ function upsertJsonLd(id, data) {
   el.textContent = JSON.stringify(data);
 }
 
-export default function Seo({ title, description, keywords, image }) {
+export default function Seo({ title, description, keywords, image, socialTitle, socialDescription }) {
   const { lang } = useTranslation();
   const ogImage = new URL(image || DEFAULT_OG_IMAGE, import.meta.env.VITE_SITE_ORIGIN).href;
   const canonicalPath = window.location.pathname || "/";
@@ -57,8 +57,8 @@ export default function Seo({ title, description, keywords, image }) {
 
     upsertMeta("property", "og:site_name", "Ponte Social Consultoria");
     upsertMeta("property", "og:type", "website");
-    upsertMeta("property", "og:title", title);
-    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:title", socialTitle || title);
+    upsertMeta("property", "og:description", socialDescription || description);
     upsertMeta("property", "og:locale", OG_LOCALE[lang]);
     upsertMeta("property", "og:locale:alternate", "en_US");
     upsertMeta("property", "og:locale:alternate", "es_419");
@@ -70,8 +70,8 @@ export default function Seo({ title, description, keywords, image }) {
     upsertMeta("property", "og:image:alt", "Ponte Social Consultoria");
 
     upsertMeta("name", "twitter:card", "summary_large_image");
-    upsertMeta("name", "twitter:title", title);
-    upsertMeta("name", "twitter:description", description);
+    upsertMeta("name", "twitter:title", socialTitle || title);
+    upsertMeta("name", "twitter:description", socialDescription || description);
     upsertMeta("name", "twitter:image", ogImage);
     upsertMeta("name", "twitter:image:alt", "Ponte Social Consultoria");
 
@@ -86,7 +86,7 @@ export default function Seo({ title, description, keywords, image }) {
         { "@type": "ListItem", "position": 1, "name": "Início", "item": canonical }
       ]
     });
-  }, [lang, title, description, keywords, image, canonical, ogImage]);
+  }, [lang, title, description, keywords, image, canonical, ogImage, socialTitle, socialDescription]);
 
   return null;
 }

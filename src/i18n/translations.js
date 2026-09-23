@@ -459,8 +459,10 @@ export const translations = {
       pactoSealDesc: "Adesão aos dez princípios do Pacto Global da ONU.",
     },
     seo: {
-      title: "Ponte Social | Consultoria social e gestão de stakeholders",
-      description: "Consultoria social em inteligência territorial, stakeholders e mediação de conflitos. Relacionamento comunitário e rede de parceiros em projetos sociais e culturais.",
+      title: "Ponte Social | Relacionamento com Comunidades e Stakeholders",
+      description: "Consultoria especializada em relacionamento entre empresas e comunidades, gestão de stakeholders, inteligência territorial, diálogo e prevenção de conflitos.",
+      socialTitle: "Ponte Social | Construindo relações entre empresas e comunidades",
+      socialDescription: "Estratégia, escuta e inteligência para empresas construírem relações consistentes com comunidades, stakeholders e territórios.",
       keywords: "consultoria social, inteligência territorial, relacionamento com comunidades, gestão de stakeholders, mapeamento de stakeholders, gestão de riscos sociais, diálogo social, mediação de conflitos, facilitação de diálogos, gestão de projetos sociais, projetos sociais e culturais",
     },
     accountDeletion: {
@@ -883,8 +885,10 @@ export const translations = {
       pactoSealDesc: "Commitment to the ten principles of the UN Global Compact.",
     },
     seo: {
-      title: "Ponte Social | Social consulting and stakeholder engagement",
-      description: "Social consulting in territorial intelligence, stakeholder engagement and conflict mediation. Community relations and a partner network in social and cultural projects.",
+      title: "Ponte Social | Community Relations and Stakeholder Engagement",
+      description: "Consulting in business-community relations, stakeholder management, territorial intelligence, dialogue and conflict prevention.",
+      socialTitle: "Ponte Social | Building relationships between businesses and communities",
+      socialDescription: "Strategy, listening and intelligence to help businesses build lasting relationships with communities, stakeholders and territories.",
       keywords: "social consulting, territorial intelligence, community relations, stakeholder engagement, stakeholder mapping, social risk management, social dialogue, conflict mediation, dialogue facilitation, social project management, social and cultural projects",
     },
     accountDeletion: {
@@ -1307,8 +1311,10 @@ export const translations = {
       pactoSealDesc: "Adhesión a los diez principios del Pacto Global de la ONU.",
     },
     seo: {
-      title: "Ponte Social | Consultoría social y gestión de stakeholders",
-      description: "Consultoría social en inteligencia territorial, stakeholders y mediación de conflictos. Relaciones comunitarias y red de aliados en proyectos sociales y culturales.",
+      title: "Ponte Social | Relaciones Comunitarias y Gestión de Stakeholders",
+      description: "Consultoría especializada en relaciones entre empresas y comunidades, gestión de stakeholders, inteligencia territorial, diálogo y prevención de conflictos.",
+      socialTitle: "Ponte Social | Construyendo relaciones entre empresas y comunidades",
+      socialDescription: "Estrategia, escucha e inteligencia para que las empresas construyan relaciones sólidas con comunidades, stakeholders y territorios.",
       keywords: "consultoría social, inteligencia territorial, relaciones comunitarias, gestión de stakeholders, mapeo de actores, gestión de riesgos sociales, diálogo social, mediación de conflictos, facilitación del diálogo, gestión de proyectos sociales, proyectos sociales y culturales",
     },
     accountDeletion: {
