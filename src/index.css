@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paleta oficial Ponte Social — azul-marinho #073050 (estrutura), Verde Ponte #477A63 (identidade), verde-sálvia #A8B7A0 (CTA), off-white #F6F6F6. Dourado reduzido a microdetalhe. */
+    --background: 0 0% 96%;
+    --foreground: 206 84% 17%;
+    --card: 0 0% 96%;
+    --card-foreground: 206 84% 17%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 206 84% 17%;
+    --primary: 206 84% 17%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 97 13% 65%;
+    --secondary-foreground: 206 84% 17%;
+    --muted: 97 13% 92%;
+    --muted-foreground: 206 40% 30%;
+    --accent: 152 23% 37%;
+    --accent-foreground: 30 31% 98%;
+    --institutional: 135 52% 22%;
+    --navy: 206 84% 17%;
+    --navy-foreground: 0 0% 100%;
+    --gold: 45 100% 33%;
+    --red: 8 50% 46%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 97 13% 75%;
+    --input: 97 13% 75%;
+    --ring: 45 100% 33%;
+    --chart-1: 206 84% 17%;
+    --chart-2: 97 13% 65%;
+    --chart-3: 135 52% 22%;
+    --chart-4: 45 100% 33%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --font-heading: 'Source Serif 4', Georgia, serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 206 84% 17%;
+    --sidebar-primary: 206 84% 17%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 97 13% 92%;
+    --sidebar-accent-foreground: 206 84% 17%;
+    --sidebar-border: 97 13% 75%;
+    --sidebar-ring: 45 100% 33%;
+    --safe-top: env(safe-area-inset-top);
+    --safe-bottom: env(safe-area-inset-bottom);
+  }
+
+  .dark {
+    --background: 206 60% 10%;
+    --foreground: 0 0% 92%;
+    --card: 206 55% 13%;
+    --card-foreground: 0 0% 92%;
+    --popover: 206 55% 13%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 206 84% 17%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 97 16% 55%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 97 13% 22%;
+    --muted-foreground: 97 10% 70%;
+    --accent: 152 30% 52%;
+    --accent-foreground: 30 31% 98%;
+    --institutional: 135 52% 30%;
+    --navy: 206 55% 16%;
+    --navy-foreground: 0 0% 96%;
+    --gold: 45 100% 45%;
+    --red: 8 50% 46%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 206 30% 26%;
+    --input: 206 30% 26%;
+    --ring: 45 100% 45%;
+  }
+
+  /* Automatic dark mode when the OS/UI prefers dark, unless the user has
+     explicitly chosen light (the ThemeProvider adds the `.light` class). */
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --background: 206 60% 10%;
+      --foreground: 0 0% 92%;
+      --card: 206 55% 13%;
+      --card-foreground: 0 0% 92%;
+      --popover: 206 55% 13%;
+      --popover-foreground: 0 0% 92%;
+      --primary: 206 84% 17%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 97 16% 55%;
+      --secondary-foreground: 0 0% 96%;
+      --muted: 97 13% 22%;
+      --muted-foreground: 97 10% 70%;
+      --accent: 152 30% 52%;
+      --accent-foreground: 30 31% 98%;
+      --institutional: 135 52% 30%;
+      --navy: 206 55% 16%;
+      --navy-foreground: 0 0% 96%;
+      --gold: 45 100% 45%;
+      --red: 8 50% 46%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 206 30% 26%;
+      --input: 206 30% 26%;
+      --ring: 45 100% 45%;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html, body {
+    overscroll-behavior: none;
+    overflow-x: hidden;
+  }
+
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    background-color: hsl(45 80% 45% / 0.25);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hero-curtain {
+    transform: translateY(calc(var(--scroll-progress, 0) * -80px));
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .section-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Accessibility: optional larger text on mobile only. Default (no class)
+     keeps the original font sizes. */
+  @media (max-width: 1023px) {
+    html.text-scale-lg {
+      zoom: 1.12;
+    }
+    html.text-scale-xl {
+      zoom: 1.24;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .section-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
