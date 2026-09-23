@@ -4,6 +4,9 @@ Branch de trabalho: `migration/hostinger-premium`, somente no repositório
 `danielperini/ponte-social-copy`. Produção continua no Base44. Não fazer deploy,
 alterar DNS, habilitar auto deploy ou modificar a main sem uma tarefa autorizada.
 
+Após autorização específica, foi instalada homologação protegida na Hostinger.
+Estado atual, testes e pendências: [docs/HOMOLOGATION_REPORT.md](docs/HOMOLOGATION_REPORT.md).
+
 Leia `MIGRATION_AUDIT.md` (auditoria histórica), `docs/MIGRATION_STATUS.md`
 (implementação e limites atuais) e `docs/HOSTINGER_RUNBOOK.md` (passos futuros).
 
