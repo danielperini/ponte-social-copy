@@ -130,3 +130,14 @@ explicitamente permitidos pan-y e pinch-zoom em html/body. Build aprovado; alter
 publicada com backup do index em pre-touch-scroll-20260923 (mesma pasta de backups).
 Validação física no aparelho afetado ainda depende do proprietário; não declarar
 resolução confirmada apenas pelo teste emulado.
+
+## Verificação WebKit e menu móvel — 23/09/2026
+
+WebKit 26.5 no Windows, emulação iPhone 13 (390 px, toque), abriu o domínio real.
+Detectado que o painel do menu cobria o botão de fechar e interceptava seu toque.
+Corrigido o empilhamento da barra superior com relative z-50. Após publicação,
+testes aprovaram abrir/fechar via toque, liberação do bloqueio do body, rolagem
+programática, ausência de erros JS e ausência de overflow horizontal.
+Isso não é teste de gesto físico em iPhone/iOS: essa validação permanece não executada.
+Backup de index: $HOME/ponte-staging/backups/pre-mobile-menu-20260923/index.html;
+assets anteriores mantidos para rollback. Build aprovado; sem alteração de DNS/config.
